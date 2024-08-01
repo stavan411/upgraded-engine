@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://ststest.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_139ebaf01209448fbad3a365968e3669 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_0385e584237c4c9cbe139ade67a6cc98 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_05b3aeda69634b85b3c66e8ecd2c6a89 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_878d7cfe3b584ac298d770e8f80f1083 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ststest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_139ebaf01209448fbad3a365968e3669 }}/java:${{ github.sha }}
+        tags: ststest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_05b3aeda69634b85b3c66e8ecd2c6a89 }}/java:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'javatest1'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_52cdbbb87ca64bcab18170d0b5e6022e }}
-        images: 'ststest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_139ebaf01209448fbad3a365968e3669 }}/java:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4623eae71fb145e38114b360286105e8 }}
+        images: 'ststest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_05b3aeda69634b85b3c66e8ecd2c6a89 }}/java:${{ github.sha }}'
