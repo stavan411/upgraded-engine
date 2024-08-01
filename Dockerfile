@@ -2,4 +2,4 @@ FROM openjdk:11-jre-slim
 COPY target/myapp-1.0-SNAPSHOT.jar /usr/app/myapp.jar
 WORKDIR /usr/app
 ENTRYPOINT ["java", "-jar", "myapp.jar"]
-EXPOSE 80
+EXPOSE 8080
