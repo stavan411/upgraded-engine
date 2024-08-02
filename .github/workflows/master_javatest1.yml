@@ -42,6 +42,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
+        context: .
         tags: ststest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_05b3aeda69634b85b3c66e8ecd2c6a89 }}/java:${{ github.sha }}
         file: ./Dockerfile
 
